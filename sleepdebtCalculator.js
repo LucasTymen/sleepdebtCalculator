@@ -63,8 +63,17 @@ const getIdealSleepHours = () => {
 };
 
 const calculateSleepDebt = () => {
-    const actualSleepHours = getActualSleepHours();
-    const idealSleepHours = getIdealSleepHours();
+  const actualSleepHours = getActualSleepHours();
+  const idealSleepHours = getIdealSleepHours();
+  if (actualSleepHours === idealSleepHours) {
+    console.log("You've got " +(idealSleepHours - actualSleepHours)+" hours - the perfect amount of sleep.");
+  } else if (actualSleepHours > idealSleepHours) {
+    console.log(
+      "you slept  " + (idealSleepHours - actualSleepHours)+" hours too long. You've slept too much already, get back to work, you lazy ass !!!"
+    );
+  } else {
+    console.log("You must be tired and should have some rest. You only slept  " + ( idealSleepHours - actualSleepHours)+" hours");
+  }
 };
 
 // ######## Console renderings ########
@@ -78,5 +87,9 @@ console.log(
     getSleepHours("saturday") +
     getSleepHours("sunday")
 );
+calculateSleepDebt();
 console.log("----- Summ of IDEAL sleeping time -----");
-console.log(getIdealSleepHours())
+console.log(getIdealSleepHours());
+
+console.log("-------- The verdict of DOOM --------");
+console.log(calculateSleepDebt());
